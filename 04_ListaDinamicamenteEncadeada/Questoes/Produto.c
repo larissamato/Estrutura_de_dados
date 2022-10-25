@@ -202,25 +202,88 @@ int troca(Lista* li, int pos1, int pos2){
 	Elem* ant1= endereco_ant_elemento(li,pos1);
 	Elem* ant2= endereco_ant_elemento(li, pos2);
 
-	
-	
-	if (ant1 == *li){
-		*li=p2;
-		ant2=*li;
-		/*p2->prox = p1->prox;
-		ant2->prox=p1;
-		p1->prox=p2;*/
+	Elem* no = *li;
 
+	//Verifica começo e final da lista 
+	if (p1->dados.codigo==1 && p2->prox ==NULL){
+		*li = p2;
+		p2->prox=p1->prox;
+		ant2->prox=p1;
+		p1->prox=NULL;
 	}
-	else if (ant2 == *li){
-		*li=p1;
+	//Verifica começo e final da lista 
+	else if (p2->dados.codigo==1 && p1->prox ==NULL){
+		*li = p1;
+		p1->prox=p2->prox;
+		ant1->prox=p2;
+		p2->prox=NULL;
 	}
-	else{
+	//pos1 está no final da lista
+	else if (p1->prox == NULL && p2->dados.codigo!=1){
+		p1->prox=p2->prox;
+		ant2->prox=p1;
+		ant1->prox=p2;
+		p2->prox = NULL;
+	}
+
+	//pos2 estiver no final da lista
+	else if (p2->prox == NULL && p1->dados.codigo!=1){
+		p2->prox=p1->prox;
+		ant2->prox=p1;
+		ant1->prox=p2;
+		p1->prox = NULL;
+	}
+
+	//verifica se pos1 está no topo da lista
+	 if (p1->dados.codigo==1 && p2->prox != NULL){
+		if (p2->dados.codigo==2){
+			*li=p2;
+			p1->prox=p2->prox;
+			p2->prox=p1;
+			
+		}else{
+		*li=p2;
+		p1->prox=p2->prox;
+		ant2->prox=p1;
+		p2->prox=ant2;
+		}
+	}
+
+	//verifica se pos2 está no topo da lista 
+	else if (p2->dados.codigo==1 && p1->prox != NULL){
+		if (p1->dados.codigo==2){
+			*li=p1;
+			p2->prox=p1->prox;
+			p1->prox=p2;
+
+		}else{
+			*li=p1;
+			p2->prox=p1->prox;
+			ant1->prox=p2;
+			p1->prox=ant1;
+		}
+		
+	}
+
+    //Troca normal
+	else if (pos1 < pos2 && p2->prox != NULL){
+
 		p1->prox = p2->prox;
 		ant1->prox=p2;
 		p2->prox = p1;
 	}
 
+	//Troca normal
+	else if ( pos1 > pos2 && p2->prox != NULL){
+
+		p2->prox=p1->prox;
+		ant2->prox=p1;
+		p1->prox = p2;
+	}
+
+	else {
+		return 0;
+	}
 
 	return 1;
 

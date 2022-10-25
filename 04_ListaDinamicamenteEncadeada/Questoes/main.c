@@ -7,7 +7,7 @@ int main(){
 	{1,"bala",0.50,200},
 	{2,"panela",50.00,7},
 	{3,"camisa",5.00,90},
-	{4,"camisa",0.01,90}
+	{4,"lasanha",0.01,90}
 	};
 
     struct produto p2[4] = {
@@ -30,7 +30,7 @@ int main(){
     for(int i=0; i<4;i++)
 		insere_lista_final(li2,p2[i]);
 
-	imprime_lista(li);
+	//imprime_lista(li);
     //imprime_lista(li2);
     //imprime_lista(li3);
 
@@ -38,7 +38,7 @@ int main(){
     //printf ("\n-> TAMANHO DA LISTA: %d\n", tamanho_lista(li));
 
     //Questão 3 
-    Lista endereco = endereco_elemento(li, 3);	  
+    /*Lista endereco = endereco_elemento(li, 3);	  
 	if (endereco != NULL) 
 		printf("-> ENDEREÇO: %d\n", endereco); 
 	else
@@ -48,7 +48,7 @@ int main(){
 	if (ant != NULL) 
 		printf("-> ENDEREÇO ANTERIOR: %d\n", ant); 
 	else
-		printf("Nao foi possivel retornar o endereco"); 
+		printf("Nao foi possivel retornar o endereco");*/ 
 /*
     //Questão 4
     concatena(li,li2,li3);
@@ -65,8 +65,15 @@ int main(){
 	if (tro==1)
 		printf("Operação bem sucedida!\n");
 */
-	int tro = troca(li, 1, 3);
-	imprime_lista(li);
+	int tro = troca(li, 2, 1);
+	if (tro ==0){
+	printf("\nNÃO FOI POSSÍVEL REALIZAR TROCA!\n");
+	}else{
+		printf("\n\n\t\t\tTROCA REALIZADA!\n");
+		imprime_lista(li);
+	}
+
+
 
 	libera_lista(li);
 	libera_lista(li2);
