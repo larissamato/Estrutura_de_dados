@@ -103,56 +103,48 @@ int remove_lista(Lista* li, int mat){
 
 //-------------------------- Exercícios ---------------------
 
-//Questão 2
+//QUESTÃO 2
 int tamanho_lista(Lista* li){
     if(li == NULL)
         return 0;
     int cont = 0;
     Elem* no = *li;
-    while(no != NULL){
+    
+	while(no != NULL){
         cont++;
         no = no->prox;
     }
     return cont;
 }
 
-//Questão 3 
+//QUESTÃO 3 
 Lista endereco_elemento(Lista* li, int pos) {
-	
 	if (lista_vazia(li) || pos < 1 || pos > tamanho_lista(li))
 		return NULL;
-	
 	int i = 1;
-	
 	Elem* no = *li;
+	
 	while(i < pos) {
 		no = no->prox;
 		i++;
 	}
-		
-	return no;
-		
+	return no;	
 }
 
 Lista endereco_ant_elemento(Lista* li, int pos) {
-	
 	if (lista_vazia(li) || pos < 1 || pos > tamanho_lista(li))
 		return NULL;
-	
     Elem *no = *li;
-    while(no != NULL && no->dados.codigo < pos-1){
+    
+	while(no != NULL && no->dados.codigo < pos-1){
         no = no->prox;
     }
-
-	return no;
-		
+	return no;	
 }
 
-// Questão 4
+// QUESTÃO 4
 void concatena(Lista* li_1, Lista* li_2, Lista* li_3) {
-	
 	if (lista_vazia(li_1) || lista_vazia(li_2) ) {
-	
 		if (!lista_vazia(li_1)) 
 			*li_3 = *li_1;			 
 				
@@ -161,17 +153,15 @@ void concatena(Lista* li_1, Lista* li_2, Lista* li_3) {
 				
 		return;
 	}
-	
 	int tam_l1 = tamanho_lista(li_1);
 	Elem* p = endereco_elemento(li_1, tam_l1);
 	Elem* q = *li_2;
-	
+
 	*li_3 = *li_1;		
-	 p->prox = q;
-	
+	 p->prox = q;	
 }
 
-//Questão 5 
+//QUESTÃO 5 
 float menorPreco(Lista* li){
 	if (li==NULL)
 		return 0;
@@ -181,7 +171,7 @@ float menorPreco(Lista* li){
 
 	Elem* no = *li;
 	float menor = 2.0;
-
+	
 	while(no!=NULL){
 		if(no->dados.preco < menor)
 		menor = no->dados.preco;
@@ -190,9 +180,7 @@ float menorPreco(Lista* li){
 	return menor;
 }
 
-//Questão 6
-/*Escreva uma função que receba a posição de dois elementos de uma lista e os troque de lugar. A
-função deve retornar se a operação foi possível ou não.*/
+//QUESTÃO 6
 int troca(Lista* li, int pos1, int pos2){
 	if (lista_vazia(li) || pos1 < 1 || pos1 > tamanho_lista(li) || pos2 < 1 || pos2 > tamanho_lista(li))
 		return 0;
@@ -202,10 +190,12 @@ int troca(Lista* li, int pos1, int pos2){
 	Elem* ant1= endereco_ant_elemento(li,pos1);
 	Elem* ant2= endereco_ant_elemento(li, pos2);
 
-	Elem* no = *li;
-
+	//Verifica se não há trocas
+	if (pos1==pos2){
+		return 0;
+	}
 	//Verifica começo e final da lista 
-	if (p1->dados.codigo==1 && p2->prox ==NULL){
+	else if (p1->dados.codigo==1 && p2->prox ==NULL){
 		*li = p2;
 		p2->prox=p1->prox;
 		ant2->prox=p1;
@@ -220,35 +210,45 @@ int troca(Lista* li, int pos1, int pos2){
 	}
 	//pos1 está no final da lista
 	else if (p1->prox == NULL && p2->dados.codigo!=1){
-		p1->prox=p2->prox;
-		ant2->prox=p1;
-		ant1->prox=p2;
-		p2->prox = NULL;
+		if(ant1==p2){
+			ant2->prox=p1;
+			p1->prox=p2;
+			p2->prox=NULL;
+		}else{
+			p1->prox=p2->prox;
+			ant2->prox=p1;
+			ant1->prox=p2;
+			p2->prox = NULL;
+		}
 	}
-
 	//pos2 estiver no final da lista
 	else if (p2->prox == NULL && p1->dados.codigo!=1){
-		p2->prox=p1->prox;
-		ant2->prox=p1;
-		ant1->prox=p2;
-		p1->prox = NULL;
+		if (ant2==p1){
+			ant1->prox=p2;
+			p2->prox=p1;
+			p1->prox=NULL;
+			
+		}else{
+			p2->prox=p1->prox;
+			ant1->prox=p2;
+			ant2->prox=p1;
+			p1->prox = NULL;
+		}
 	}
-
 	//verifica se pos1 está no topo da lista
-	 if (p1->dados.codigo==1 && p2->prox != NULL){
+	else if (p1->dados.codigo==1 && p2->prox != NULL){
 		if (p2->dados.codigo==2){
 			*li=p2;
 			p1->prox=p2->prox;
 			p2->prox=p1;
 			
 		}else{
-		*li=p2;
-		p1->prox=p2->prox;
-		ant2->prox=p1;
-		p2->prox=ant2;
+			*li=p2;
+			p1->prox=p2->prox;
+			ant2->prox=p1;
+			p2->prox=ant2;
 		}
 	}
-
 	//verifica se pos2 está no topo da lista 
 	else if (p2->dados.codigo==1 && p1->prox != NULL){
 		if (p1->dados.codigo==2){
@@ -264,27 +264,19 @@ int troca(Lista* li, int pos1, int pos2){
 		}
 		
 	}
-
     //Troca normal
 	else if (pos1 < pos2 && p2->prox != NULL){
-
 		p1->prox = p2->prox;
 		ant1->prox=p2;
 		p2->prox = p1;
 	}
-
 	//Troca normal
 	else if ( pos1 > pos2 && p2->prox != NULL){
-
 		p2->prox=p1->prox;
 		ant2->prox=p1;
 		p1->prox = p2;
 	}
-
-	else {
-		return 0;
-	}
-
+	
 	return 1;
 
 }

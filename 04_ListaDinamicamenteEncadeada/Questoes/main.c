@@ -65,13 +65,16 @@ int main(){
 	if (tro==1)
 		printf("Operação bem sucedida!\n");
 */
-	int tro = troca(li, 2, 1);
+	int tro = troca(li, 4,4);
 	if (tro ==0){
 	printf("\nNÃO FOI POSSÍVEL REALIZAR TROCA!\n");
 	}else{
 		printf("\n\n\t\t\tTROCA REALIZADA!\n");
 		imprime_lista(li);
 	}
+
+
+
 
 
 
