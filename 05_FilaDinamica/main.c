@@ -72,16 +72,43 @@ void intercala(Fila* fi_1, Fila* fi_2, Fila* fi_3) {
 }
 
 //Questão 5
-void reverso (Fila* f1, Fila* f5){
-    if (Fila_vazia(f1))  {
+/*void reverso(Fila* fi_1, Fila* fi_2) {
+	
+	if (Fila_vazia(fi_1))  {
+		return;
+	}
+	
+	struct aluno al;
+	
+	Fila* fi_aux = cria_Fila();
+	// Inserindo os aprovados
+	while(!Fila_vazia(fi_1)) {
+		consulta_Fila(fi_1, &al);
+		remove_Fila(fi_1);
+		insere_Fila(fi_aux, al);
+		insere_Fila(fi_2, al);	
+	}
+    reverso_Fila(fi_2);	
+	//Reconstruindo fila original
+	while(!Fila_vazia(fi_aux)) {
+		consulta_Fila(fi_aux, &al);
+		remove_Fila(fi_aux);
+		insere_Fila(fi_1, al);
+	}	
+	
+}
+*/
+
+void reverso (Fila* fi_1, Fila* fi_2){
+    if (Fila_vazia(fi_1))  {
 		return;
 	}
     struct aluno al;
-    if (!Fila_vazia(f1)){
-        consulta_Fila(f1, &al);
-        remove_Fila(f1);
-        insere_Fila(f4, al);
-        reverso(f1,f4);
+    if (!Fila_vazia(fi_1)){
+        consulta_Fila(fi_1, &al);
+        remove_Fila(fi_1);
+        insere_Fila(fi_2, al);
+        reverso(fi_1, fi_2);
     }
 
 }
@@ -105,25 +132,25 @@ int main(){
         insere_Fila(f1,a[i]);
         insere_Fila(f2,b[i]);
     }
+    
     printf("\nQuestão 3\n");
     Fila* f3 = cria_Fila();
     fila_aprovados(f1,f3);
     imprime_Fila(f3);
-    printf("\nQuestão 4\n");
+    /*printf("\nQuestão 4\n");
     Fila* f4 = cria_Fila();
     intercala(f1,f2,f4);
     imprime_Fila(f4);
-   
+   */
     printf("\nQuestão 5\n");
     Fila* f5 = cria_Fila();
     reverso(f1,f5);
     imprime_Fila(f5);
 
-
     libera_Fila(f1);
     libera_Fila(f2);
-    libera_Fila(f3);
-    libera_Fila(f4);
+    //libera_Fila(f3);
+    //libera_Fila(f4);
     system("pause");
         return 0;
 }

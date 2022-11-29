@@ -116,4 +116,25 @@ void imprime_Fila(Fila* fi){
     }
 }
 
+void reverso_Fila (Fila *fi){
+    if(fi == NULL)
+        return;
+    Fila * reverso = cria_Fila();
+    Elem * rev = reverso->inicio;
+    Elem *no = fi->inicio;
+    Elem *aux = fi->inicio;
+    while (no !=NULL){
+        reverso->inicio = no;
+        if (rev == fi->inicio)
+            rev->prox =NULL;
+        else {
+            rev->prox = aux;
+        }
+        aux = no;
+        no = no->prox;
+        printf("\nFILA REVERSA\n");
+        imprime_Fila(reverso);
+
+    }
+}
 
