@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "FilaDin.h"
-
+#include "FilaDin.h" //inclui os Protótipos
 //Definição do tipo Fila
 struct elemento{
     struct aluno dados;
     struct elemento *prox;
 };
-
 typedef struct elemento Elem;
-
 //Definição do Nó Descritor da Fila
 struct fila{
     struct elemento *inicio;
@@ -66,7 +63,8 @@ int insere_Fila(Fila* fi, struct aluno al){
 }
 
 int remove_Fila(Fila* fi){
-    if(fi == NULL)
+           
+	if(fi == NULL)
         return 0;
     if(fi->inicio == NULL)//fila vazia
         return 0;
@@ -77,6 +75,8 @@ int remove_Fila(Fila* fi){
     free(no);
     fi->qtd--;
     return 1;
+    
+    
 }
 
 int tamanho_Fila(Fila* fi){
@@ -115,5 +115,3 @@ void imprime_Fila(Fila* fi){
         no = no->prox;
     }
 }
-
-
