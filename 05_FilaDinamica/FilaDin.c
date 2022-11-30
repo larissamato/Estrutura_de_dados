@@ -48,6 +48,15 @@ int consulta_Fila(Fila* fi, struct aluno *al){
     return 1;
 }
 
+int consulta_Fila_Final(Fila* fi, struct aluno *al){
+    if(fi == NULL)
+        return 0;
+    if(fi->inicio == NULL)//fila vazia
+        return 0;
+    *al = fi->final->dados;
+    return 1;
+}
+
 int insere_Fila(Fila* fi, struct aluno al){
     if(fi == NULL)
         return 0;
@@ -64,7 +73,36 @@ int insere_Fila(Fila* fi, struct aluno al){
     fi->qtd++;
     return 1;
 }
-
+/*
+int insere_Fila_Ordenada(Fila* fi, struct aluno al){
+    if(li == NULL)
+        return 0;
+    Elem *no = (Elem*) malloc(sizeof(Elem));
+    if(no == NULL)
+        return 0;
+    no->dados = al;
+    no->prox = NULL;
+    if(fi->final == NULL){
+        fi->inicio = no;    
+        return 1;
+    }
+    else{
+        Elem *ant, *atual = *fi;
+        while(atual != NULL && atual->dados.matricula < al.matricula){
+            ant = atual;
+            atual = atual->prox;
+        }
+        if(atual == fi->dados->matricula){
+            no->prox = (*li);
+            *li = no;
+        }else{
+            no->prox = atual;
+            ant->prox = no;
+        }
+        return 1;
+    }
+}
+*/
 int remove_Fila(Fila* fi){
     if(fi == NULL)
         return 0;
@@ -76,6 +114,35 @@ int remove_Fila(Fila* fi){
         fi->final = NULL;
     free(no);
     fi->qtd--;
+    return 1;
+}
+
+int remove_Fila_Final(Fila* fi){
+    if(fi == NULL)
+        return 0;
+    if(fi->inicio == NULL)//fila vazia
+        return 0;
+
+    Elem *no = fi->inicio;
+    Elem *aux = no;
+    int verifica = 0;
+//Verifica se há somente um item na lista
+    if(fi->final == fi->inicio){
+        fi->inicio = NULL;
+        fi->final = NULL;
+        verifica = 1;
+    }
+//removendo o último da lista
+    while(no != NULL){       
+        if (no->prox == NULL){
+            fi->final = aux;
+            aux->prox = NULL;
+            free(no);
+            fi->qtd--;
+        }
+        aux = no;
+        no = no->prox;
+    }
     return 1;
 }
 
@@ -115,26 +182,3 @@ void imprime_Fila(Fila* fi){
         no = no->prox;
     }
 }
-
-void reverso_Fila (Fila *fi){
-    if(fi == NULL)
-        return;
-    Fila * reverso = cria_Fila();
-    Elem * rev = reverso->inicio;
-    Elem *no = fi->inicio;
-    Elem *aux = fi->inicio;
-    while (no !=NULL){
-        reverso->inicio = no;
-        if (rev == fi->inicio)
-            rev->prox =NULL;
-        else {
-            rev->prox = aux;
-        }
-        aux = no;
-        no = no->prox;
-        printf("\nFILA REVERSA\n");
-        imprime_Fila(reverso);
-
-    }
-}
-

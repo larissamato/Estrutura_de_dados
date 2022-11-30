@@ -16,4 +16,6 @@ int tamanho_Fila(Fila* fi);
 int Fila_vazia(Fila* fi);
 int Fila_cheia(Fila* fi);
 void imprime_Fila(Fila* fi);
-void reverso_Fila(Fila* fi);
+int consulta_Fila_Final(Fila* fi, struct aluno *al);
+int remove_Fila_Final(Fila* fi);
+int insere_Fila_Ordenada(Fila* fi, struct aluno *al);
