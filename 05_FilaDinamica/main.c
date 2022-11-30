@@ -151,7 +151,6 @@ int main(){
     libera_Fila(f2);
     //libera_Fila(f3);
     //libera_Fila(f4);
-    system("pause");
         return 0;
 }
 
