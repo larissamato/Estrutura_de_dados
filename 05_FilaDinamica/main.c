@@ -112,6 +112,7 @@ void reverso(Fila* fi_1, Fila* fi_2) {
 
 //Questão 6
 
+
 //Questão 7
 void concatena(Fila* fi_1, Fila* fi_2) {
 		
@@ -151,7 +152,7 @@ int main(){
     for(i=0; i < 4; i++){
         insere_Fila(fi_1,a[i]);
         insere_Fila(fi_2,b[i]);
-        insere_Fila(fi_2,b[i]);
+        insere_Fila(fi_6,a[i]);
     }
 
     //Questões
@@ -170,7 +171,7 @@ int main(){
     
     printf("\nQuestão 6\n");
     struct aluno al = {8,"Divina",10.7,6.1,7.4};
-    //insere_Fila_Ordenada(fi_1, &al);
+    insere_Fila_Ordenada(fi_1, &al);
 
     printf("\nQuestão 7\n");
     concatena(fi_6,fi_2);

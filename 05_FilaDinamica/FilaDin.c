@@ -73,9 +73,9 @@ int insere_Fila(Fila* fi, struct aluno al){
     fi->qtd++;
     return 1;
 }
-/*
+
 int insere_Fila_Ordenada(Fila* fi, struct aluno al){
-    if(li == NULL)
+    if(fi == NULL)
         return 0;
     Elem *no = (Elem*) malloc(sizeof(Elem));
     if(no == NULL)
@@ -100,9 +100,9 @@ int insere_Fila_Ordenada(Fila* fi, struct aluno al){
             ant->prox = no;
         }
         return 1;
-    }
+    }        
 }
-*/
+
 int remove_Fila(Fila* fi){
     if(fi == NULL)
         return 0;
