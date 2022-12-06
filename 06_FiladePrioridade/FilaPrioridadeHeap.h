@@ -17,6 +17,8 @@ int tamanho_FilaPrio(FilaPrio* fp);
 int estaCheia_FilaPrio(FilaPrio* fp);
 int estaVazia_FilaPrio(FilaPrio* fp);
 void imprime_FilaPrio(FilaPrio* fp);
-
-
-
+//----------------------------------------------------
+void promoverElementoMin(FilaPrio* fp, int filho);
+int insere_FilaPrioMin(FilaPrio* fp, char * nome, int prioridade);
+void rebaixarElementoMin(FilaPrio* fp, int pai);
+int remove_FilaPrioMin(FilaPrio* fp);
