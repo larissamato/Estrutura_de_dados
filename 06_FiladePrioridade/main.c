@@ -95,7 +95,37 @@ int main(){
     printf("\n=====================================\n");
     imprime_FilaPrio(fp_min);
 
+    //Questão 5
+    struct paciente itens_2[9] =  {{"Andre",98},
+                                {"Bianca", 78},
+                                {"Carlos",72},
+                                {"Nilza",42},
+                                {"Inacio",55},
+                                {"Edu",20},
+                                {"Franco",59},
+                                {"Camila",26},
+                                {"Anderson",41}};
+    FilaPrio* fp_5;
+    fp_5 = cria_FilaPrio(); 
+    i = 0;
+    for (int i=0; i< 9; i++){
+        insere_FilaPrio(fp_5, itens_2[i].nome,itens_2[i].prio);
+    }
+
+    //a) Remova o elemento de maior prioridade sobre o heap original.
+    remove_FilaPrio(fp_5);
+    //b) Insira o elemento 85 sobre o heap resultante do exercício (a).
+    struct paciente elemento85 = {"Teste", 85};
+    insere_FilaPrio(fp_5, elemento85.nome, elemento85.prio);
+    //c) Insira o elemento 92 sobre o heap resultante do exercício (b).
+    struct paciente elemento92 = {"Teste2", 92};
+    insere_FilaPrio(fp_5, elemento92.nome, elemento92.prio);
+    //d) Remova o elemento de maior prioridade sobre o heap resultante do exercício (c).
+    remove_FilaPrio(fp_5);
+    imprime_FilaPrio(fp_5);
 
     libera_FilaPrio(fp);
+    libera_FilaPrio(fp_min);
+    libera_FilaPrio(fp_5);
     return 0;
 }
