@@ -1,0 +1,12 @@
+1. Responda as seguintes questões:
+a) O que é e para que serve uma pilha?
+São estruturas de dados do tipo LIFO (last-in first-out), que permite o acesso apenas a um
+item de dado: o último item inserido
+
+b) Em que situações uma pilha pode ser utilizada?
+ - Funções recursivas em compiladores;
+ - Mecanismo de desfazer/refazer dos editores de texto;
+ - Navegação entre páginas Web;
+
+c) Suponha que uma pilha possua 4 valores na seguinte ordem: 1, 2, 3 e 4. Qual seria a sequência
+correta de operações de inserção (I) e eliminação (E) para se obter os registros na ordem 2 4 3 1?

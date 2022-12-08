@@ -29,3 +29,43 @@ Por exemplo,
 se x = ABCD, então y = DCBA.
 Considere que x e y são duas strings distintas.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
