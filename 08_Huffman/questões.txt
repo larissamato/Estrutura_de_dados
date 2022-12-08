@@ -1,0 +1,14 @@
+Pesquise sobre algoritmo de Huffman para compressão de dados e em seguida apresente:
+1. Uma introdução sobre compressão de dados.
+2. Explique a ideia do algoritmo de Huffman.
+3. Apresente a frequência de ocorrência dos caracteres do seu nome completo.
+4. Mostre os passos para a criação da Árvore de Huffman, executando o algoritmo de Huffman
+recebendo um fluxo de bytes do seu nome completo. Em cada passo, apresentar a árvore resultante
+de cada nó da lista ordenada.
+5. Gere a tabela de códigos com um fluxo de bits comprimido a partir da Árvore de Huffman.
+6. Apresentar o processo de codificação do seu nome completo (apresente cada passo do processo).
+7. Apresentar o processo de decodificação do fluxo de bits comprimido que representa o seu nome
+completo (apresente cada passo do processo).
+O conteúdo dos slides e a implementação em C disponível no Moodle podem ser utilizados para elaboração
+do trabalho. Não utilize a saída padrão da implementação disponível no Moodle. Em cada passo, utilize
+uma representação visual, conforme exemplificado no slide disponível no Moodle.
