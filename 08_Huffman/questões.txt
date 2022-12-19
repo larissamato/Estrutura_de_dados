@@ -1,6 +1,11 @@
 Pesquise sobre algoritmo de Huffman para compressão de dados e em seguida apresente:
 1. Uma introdução sobre compressão de dados.
+A compressão de dados visa diminuir o espaço de armazenamento para guardar uma informação, melhora-se o aproveitamento de disco e 
+o compartilhamento de dados na rede. Essa compressão é realizada por meio de algoritmos como o Huffman ou o Lempel-Ziv-Welch. Há dois tipos principais de compressão: Sem perdas, na qual o dado permanece o mesmo depois de descompactado, e com perdas na qual detalhes da informação são perdidas, ocorre por exemplo em vídeos.
+
 2. Explique a ideia do algoritmo de Huffman.
+O algoritmo determina a frequência de cada elemento do texto, depois monta uma árvore binária agrupando os símbolos de acordo com a frequência sendo os com maior recebem um código menor e o oposto recebe um código maior, por fim percorre toda a árvore para codificar ou decodificar o arquivo. 
+
 3. Apresente a frequência de ocorrência dos caracteres do seu nome completo.
 4. Mostre os passos para a criação da Árvore de Huffman, executando o algoritmo de Huffman
 recebendo um fluxo de bytes do seu nome completo. Em cada passo, apresentar a árvore resultante

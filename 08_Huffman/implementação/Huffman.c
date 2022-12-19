@@ -298,4 +298,3 @@ void imprimeTexto(CodigoHuffman* cHuffman, char* texto) {
 	printf("\n\n");
 	
 }
-

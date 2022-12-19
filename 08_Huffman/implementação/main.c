@@ -8,7 +8,7 @@ int main(){
 	CodigoHuffman* cHuffman = cria_CodigoHuffman();
 	
 	char texto[100];		
-	strcpy(texto, "O RATO ROEU A ROUPA DO REI DE ROMA");	
+	strcpy(texto, "LARISSA MATOS RODRIGUES");	
 		
 	gerarCodigoHuffman(cHuffman, texto);	
 	
@@ -22,7 +22,3 @@ int main(){
     system("pause");
     return 0;
 }
-
-
-
-

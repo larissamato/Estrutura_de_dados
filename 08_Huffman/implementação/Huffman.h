@@ -21,5 +21,3 @@ void gerarCodigoHuffman(CodigoHuffman* cHuffman, char* texto);
 void imprimeTabela(CodigoHuffman* cHuffman);
 void TravessiaEmPreOrdem(No* p);
 void imprimeTexto(CodigoHuffman* cHuffman, char* texto);
-
-
